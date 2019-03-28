@@ -2,4 +2,16 @@
 
 {% block content %}
 <h1>Hello World!</h1>
+{% if all_addresses %}
+  {% for record in all_addresses %}
+    <li>{{record.name}}</li>
+    <li>{{record.email}}</li>
+    <li>{{record.phone}}</li>
+    <li>{{record.address}}</li>
+    <li>{{record.city}}</li>
+    <li>{{record.state}}</li>
+    <li>{{record.zipcode}}</li>
+    <hr>
+  {% endfor %}
+{% endif %}
 {% endblock %}
