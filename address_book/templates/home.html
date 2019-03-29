@@ -1,17 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hello World!</h1>
-{% if all_addresses %}
-  {% for record in all_addresses %}
-    <li>{{record.name}}</li>
-    <li>{{record.email}}</li>
-    <li>{{record.phone}}</li>
-    <li>{{record.address}}</li>
-    <li>{{record.city}}</li>
-    <li>{{record.state}}</li>
-    <li>{{record.zipcode}}</li>
-    <hr>
-  {% endfor %}
-{% endif %}
+
+<div class="container">
+  <div class="row">
+    {% if all_addresses %}
+      {% for record in all_addresses %}
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{record.name}}</h5>
+            <p class="card-text">
+              {{record.name}}<br>
+              {{record.email}}<br>
+              {{record.phone}}<br>
+              {{record.address}}<br>
+              {{record.city}}<br>
+              {{record.state}}<br>
+              {{record.zipcode}}<br>
+            </p>
+            <a href="{% url 'edit' record.id %}" class="btn btn-secondary">Edit</a>
+          </div>
+        </div>
+        <br>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
 {% endblock %}
